@@ -4,77 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тригонометрические функции</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        button {
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        p {
-            margin-top: 20px;
-            color: #333;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Вычисление тригонометрических функций</h1>
 
-        <form method="POST" action="/">
+        <form method="post">
             <label for="angle">Угол:</label>
-            <input type="number" id="angle" name="angle" step="any" placeholder="Введите угол">
+            <input type="number" id="angle" name="angle" step="any" placeholder="Введите угол" value="{{ request.form.angle if request.form.angle }}" required>
 
             <label for="precision">Точность:</label>
-            <input type="number" id="precision" name="precision" placeholder="Введите точность">
+            <input type="number" id="precision" name="precision" placeholder="Введите точность" value="{{ request.form.precision if request.form.precision }}" required>
 
             <label for="units">Единицы измерения:</label>
-            <select id="units" name="units">
-                <option value="degrees">Градусы</option>
-                <option value="radians">Радианы</option>
+            <select id="units" name="units" required>
+                <option value="">Выберите единицы измерения</option>
+                <option value="degrees" {% if request.form.units == 'degrees' %}selected{% endif %}>Градусы</option>
+                <option value="radians" {% if request.form.units == 'radians' %}selected{% endif %}>Радианы</option>
             </select>
 
             <button type="submit">Вычислить</button>
         </form>
 
-        <p id="result">Результат: {{ result | safe }}</p>
+        {% if result %}
+        <div>
+            <h2>Результат:</h2>
+            <table>
+                <tr>
+                    <th>Функция</th>
+                    <th>Значение</th>
+                    <th>Сокращение</th>
+                </tr>
+                <tr>
+                    <td>Синус</td>
+                    <td>{{ result.sin }}</td>
+                    <td>sin</td>
+                </tr>
+                <tr>
+                    <td>Косинус</td>
+                    <td>{{ result.cos }}</td>
+                    <td>cos</td>
+                </tr>
+                <tr>
+                    <td>Тангенс</td>
+                    <td>{{ result.tg }}</td>
+                    <td>tan</td>
+                </tr>
+                <tr>
+                    <td>Котангенс</td>
+                    <td>{{ result.ctg }}</td>
+                    <td>ctan</td>
+                </tr>
+                <tr>
+                    <td>Арксинус</td>
+                    <td>{{ result.asin }}</td>
+                    <td>arcsin</td>
+                </tr>
+                <tr>
+                    <td>Арккосинус</td>
+                    <td>{{ result.acos }}</td>
+                    <td>arccos</td>
+                </tr>
+                <tr>
+                    <td>Арктангенс</td>
+                    <td>{{ result.atg }}</td>
+                    <td>arctg</td>
+                </tr>
+                <tr>
+                    <td>Арккотангенс</td>
+                    <td>{{ result.actg }}</td>
+                    <td>arcctg</td>
+                </tr>
+            </table>
+        </div>
+        {% endif %}
     </div>
-</body>
-</html>
 </body>
 </html>
