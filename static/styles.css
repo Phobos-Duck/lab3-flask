@@ -13,6 +13,24 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
+.container_c {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+.good-vibes {
+            margin-top: 50px;
+            font-size: 24px;
+            text-transform: uppercase;
+            color: #8133b4;
+        }
+
+
 
 h1 {
     text-align: center;
