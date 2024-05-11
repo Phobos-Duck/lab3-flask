@@ -19,16 +19,16 @@ def calculate():
             'sin': round(sin(angle), precision),
             'cos': round(cos(angle), precision),
             'tg': round(tan(angle), precision),
-            'ctg': round(1 / tan(angle), precision),
-            'asin': round(asin(angle), precision),
-            'acos': round(acos(angle), precision),
-            'atg': round(atan(angle), precision),
-            'actg': round(1/atan(angle), precision)
+            'ctg': round(1 / tan(angle), precision)
         }
 
-        return render_template("trig_calulator.html", result=result)
+        return render_template("index.html", result=result)
 
-    return render_template("trig_calulator.html")
+    return render_template("index.html")
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

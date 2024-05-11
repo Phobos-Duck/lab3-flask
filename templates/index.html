@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тригонометрические функции</title>
     <link rel="stylesheet" href="../static/styles.css">
+
 </head>
 <body>
     <div class="container">
@@ -26,6 +27,8 @@
 
             <button type="submit">Вычислить</button>
         </form>
+
+        <a href="/about" class="top-right-button">Об авторе</a>
 
         {% if result %}
         <div>
@@ -55,26 +58,6 @@
                     <td>Котангенс</td>
                     <td>{{ result.ctg }}</td>
                     <td>ctan</td>
-                </tr>
-                <tr>
-                    <td>Арксинус</td>
-                    <td>{{ result.asin }}</td>
-                    <td>arcsin</td>
-                </tr>
-                <tr>
-                    <td>Арккосинус</td>
-                    <td>{{ result.acos }}</td>
-                    <td>arccos</td>
-                </tr>
-                <tr>
-                    <td>Арктангенс</td>
-                    <td>{{ result.atg }}</td>
-                    <td>arctg</td>
-                </tr>
-                <tr>
-                    <td>Арккотангенс</td>
-                    <td>{{ result.actg }}</td>
-                    <td>arcctg</td>
                 </tr>
             </table>
         </div>

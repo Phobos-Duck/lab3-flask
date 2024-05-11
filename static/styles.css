@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
+    background-image: url('back.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .container {
@@ -16,14 +16,14 @@ body {
 
 h1 {
     text-align: center;
-    color: #4b2e83; /* Лиловый */
+    color: #8133b4; /* Лиловый */
     margin-bottom: 30px;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
-    color: #4b2e83; /* Лиловый */
+    color: #8133b4; /* Лиловый */
 }
 
 input, select, button {
@@ -38,11 +38,29 @@ input, select, button {
 
 button {
     width: 100%;
-    background-color: #4b2e83; /* Лиловый */
+    background-color: #8133b4; /* Лиловый */
     color: #ffffff; /* Белый */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+.top-right-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ffffff;
+            color: #8133b4;
+            border: 2px solid #8133b4;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+.top-right-button:hover {
+            background-color: #8133b4;
+            color: #ffffff;
+        }
 
 button:hover {
     background-color: #57418e; /* Темно-лиловый */
