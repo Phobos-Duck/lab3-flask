@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from math import sin, tan, cos, pi, asin, acos, atan
+from math import sin, tan, cos, pi
 
 
 app = Flask(__name__)
@@ -22,9 +22,9 @@ def calculate():
             'ctg': round(1 / tan(angle), precision)
         }
 
-        return render_template("index.html", result=result)
+        return render_template("calculator.html", result=result)
 
-    return render_template("index.html")
+    return render_template("calculator.html")
 
 @app.route('/about')
 def about():
